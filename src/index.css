@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  @apply font-body;
+}
+
+h1, h2, h3 {
+  @apply font-heading;
+}
+
+button {
+  @apply font-button;
+}
+
+@keyframes fade-in-out {
+  0% { opacity: 0; transform: translate(-50%, 10px); }
+  10% { opacity: 1; transform: translate(-50%, 0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, 10px); }
+}
+
+.animate-fade-in-out {
+  animation: fade-in-out 3s ease-in-out forwards;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.file-uploaded {
+  animation: fadeInSlide 500ms ease-in-out;
+}
+
+.react-select__menu {
+  animation: fadeInSlide 350ms ease-in-out;
+}
+
+@keyframes pulse-border {
+  0% {
+    border-color: #118AB2;
+    color: #118AB2;
+  }
+  50% {
+    border-color: #57C9EF;
+    color: #57C9EF;
+  }
+  100% {
+    border-color: #118AB2;
+    color: #118AB2;
+  }
+}
+
+.drag-active * {
+  animation: pulse-border 1s ease-in-out infinite;
+}
+
+.select-animate__menu {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+.select-animate__menu--is-open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animasi panah masuk ke bawah */
+@keyframes moveArrowDown {
+  0% {
+    transform: translateY(-10px); /* Posisi awal di atas */
+    opacity: 0; /* Tidak terlihat */
+  }
+  50% {
+    transform: translateY(5px); /* Bergerak turun */
+    opacity: 1; /* Menjadi terlihat */
+  }
+  100% {
+    transform: translateY(0); /* Posisi normal */
+  }
+}
