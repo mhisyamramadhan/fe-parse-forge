@@ -5,7 +5,7 @@ export const processAndDownload = async ({ file, code }) => {
   formData.append('code', code);
   formData.append("timezone", timezone);
 
-  const response = await fetch('http://127.0.0.1:3001/process', {
+  const response = await fetch('https://csv-processor-backend-production.up.railway.app/process', {
     method: 'POST',
     body: formData,
   });
