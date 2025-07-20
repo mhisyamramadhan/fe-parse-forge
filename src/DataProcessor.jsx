@@ -90,13 +90,12 @@ export default function DataProcessor() {
     await processAndDownload({ file, code: selectedCode.value });
     showToast('success','Download Success!');
   } catch (err) {
-    const message = err?.message || "Terjadi kesalahan tak diketahui.";
+    const message = err?.message || "An unknown error occurred.";
 
     if (
       message.includes("Processor") ||
-      message.includes("Gagal membaca") ||
-      message.includes("File tidak memiliki kolom") ||
-      message.includes("tidak dikenali")
+      message.includes("missing the required columns") ||
+      message.includes("unknown error")
     ) {
       setErrorModalMessage(message);
     } else {

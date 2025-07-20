@@ -1,16 +1,18 @@
 export const processAndDownload = async ({ file, code }) => {
+  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const formData = new FormData();
   formData.append('file', file);
   formData.append('code', code);
+  formData.append("timezone", timezone);
 
-  const response = await fetch('https://csv-processor-backend-production.up.railway.app/process', {
+  const response = await fetch('http://127.0.0.1:3001/process', {
     method: 'POST',
     body: formData,
   });
 
   if (!response.ok) {
     const errorData = await response.json();
-    throw new Error(errorData.detail || 'Gagal memproses file.');
+    throw new Error(errorData.detail || 'Failed to process the file.');
   }
 
   const disposition = response.headers.get("Content-Disposition");
