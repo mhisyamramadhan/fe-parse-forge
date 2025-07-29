@@ -213,7 +213,7 @@ const customStyles = (dark) => ({
   const isResetDisabled = (!selectedCode && !file) || isLoading;
 
   return (
-    <div className={`min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 py-12 
+    <div className={`min-h-screen px-4 py-4 sm:px-6 md:px-8 md:py-10 lg:py-12 flex items-center justify-center
       ${dark ? 'bg-themeColors-dark-base' : 'bg-themeColors-light-base'}`}>
       <div className={`max-w-6xl w-full mx-auto px-10 py-10 rounded-3xl shadow-md border-2 
         ${dark ? 'border-themeColors-dark-border bg-themeColors-dark-card' : 'border-themeColors-light-border bg-themeColors-light-card'}`}>
